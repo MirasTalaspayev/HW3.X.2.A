@@ -21,12 +21,10 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
         btnNavigate.setOnClickListener() {
             if (edText.text.isNullOrEmpty()) {
                 Toast.makeText(view.context, "Text is empty", Toast.LENGTH_SHORT).show()
-                Log.d("asd", "works")
                 return@setOnClickListener
             }
             val activity = view.context as AppCompatActivity
             activity.supportFragmentManager.beginTransaction().apply {
-
                 replace(R.id.FrameFragment, FragmentTwo().apply {
                                                                 arguments = bundleOf(Pair(ARG, edText.text.toString()))
                 }, FragmentOne::class.java.simpleName)
